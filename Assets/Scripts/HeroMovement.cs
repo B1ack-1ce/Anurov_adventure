@@ -6,24 +6,39 @@ namespace Adventure
 {
     public class HeroMovement : MonoBehaviour
     {
+        private Animator animator;
+        private Rigidbody rigidbody;
         private Vector3 direction;
-        [SerializeField] private float speed = 3f;
-        
+        private float vert;
+        private float hor;
+
         private string horizontal = "Horizontal";
         private string vertical = "Vertical";
         private string jump = "Jump";
 
+        [SerializeField] private float speed = 4f;
+        [SerializeField] private float rotationSpeed = 15f;
 
+        private void Start()
+        {
+            rigidbody = GetComponent<Rigidbody>();
+            animator = GetComponent<Animator>();
+        }
 
 
         // Update is called once per frame
         private void Update()
         {
-            direction.x = Input.GetAxis(horizontal);
-            direction.z = Input.GetAxis(vertical);
-            direction.y = Input.GetAxis(jump);
+            hor = Input.GetAxis(horizontal);
+            vert = Input.GetAxis(vertical);
 
-            transform.position += direction * speed * Time.deltaTime;
+            direction = new Vector3(hor, 0 , vert);
+            rigidbody.velocity = Vector3.ClampMagnitude(direction, 1) * speed;
+
+            if (direction.magnitude > Mathf.Abs(0.1f))
+            transform.rotation = Quaternion.Lerp(transform.rotation, Quaternion.LookRotation(direction), rotationSpeed * Time.deltaTime);
+
+
         }
     }
 }
