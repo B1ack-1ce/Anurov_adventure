@@ -32,6 +32,7 @@ namespace Adventure
             hor = Input.GetAxis(horizontal);
             vert = Input.GetAxis(vertical);
 
+
             
             direction = new Vector3(hor, 0, vert);
             rigidbody.velocity = Vector3.ClampMagnitude(direction, 1) * speed;
