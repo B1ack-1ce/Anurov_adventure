@@ -17,7 +17,9 @@ namespace Adventure.Enemies
             {
                 var enemy = Instantiate(enemyPrefab, transform);
                 nextSpawnTime = Time.time + spawnStep;
+                Destroy(enemy.gameObject, 1f);
             }
+            
         }
     }
 }

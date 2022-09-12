@@ -2,11 +2,11 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-namespace Adventure 
+namespace Adventure.Player 
 {
     public class HeroMovement : MonoBehaviour
     {
-        private Animator animator;
+        
         private Rigidbody rigidbody;
         private Vector3 direction;
         private float vert;
@@ -22,20 +22,15 @@ namespace Adventure
         private void Start()
         {
             rigidbody = GetComponent<Rigidbody>();
-            animator = GetComponent<Animator>();
         }
 
-
-        // Update is called once per frame
-        private void Update()
+        private void FixedUpdate()
         {
             hor = Input.GetAxis(horizontal);
             vert = Input.GetAxis(vertical);
 
-
-            
-            direction = new Vector3(hor, 0, vert);
-            rigidbody.velocity = Vector3.ClampMagnitude(direction, 1) * speed;
+            direction = new Vector3(vert, 0, hor);
+            transform.Translate(direction);
 
             if (direction.magnitude > Mathf.Abs(0.05f))
             transform.rotation = Quaternion.Lerp(transform.rotation, Quaternion.LookRotation(direction), rotationSpeed * Time.deltaTime);
