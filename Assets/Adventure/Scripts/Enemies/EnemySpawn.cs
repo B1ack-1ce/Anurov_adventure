@@ -6,7 +6,7 @@ namespace Adventure.Enemies
 {
     public class EnemySpawn : MonoBehaviour
     {
-        [SerializeField] private Enemy enemyPrefab;
+        [SerializeField] private GameObject enemyPrefab;
         [SerializeField] private float spawnStep = 1f;
         private float nextSpawnTime;
 
@@ -17,7 +17,7 @@ namespace Adventure.Enemies
             {
                 var enemy = Instantiate(enemyPrefab, transform);
                 nextSpawnTime = Time.time + spawnStep;
-                Destroy(enemy.gameObject, 1f);
+                Destroy(enemy.gameObject, 1.5f);
             }
             
         }

@@ -2,50 +2,40 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-namespace Adventure.Player
+namespace Adventure.Player 
 {
     public class PlayerMovement : MonoBehaviour
     {
+        [SerializeField] private float speed = 3f;
+        [SerializeField] private float rotationSpeed = 15f;
 
-        [SerializeField] private float Speed = 0.3f;
-        [SerializeField] private float JumpForce = 1f;
         private Rigidbody rigidbody;
-        private Vector3 movementVector
-        {
-            get
-            {
-                var horizontal = Input.GetAxis("Horizontal");
-                var vertical = Input.GetAxis("Vertical");
+        private Vector3 direction;
 
-                return new Vector3(vertical, 0.0f, -horizontal);
-            }
-        }
+        private string horizontal = "Horizontal";
+        private string vertical = "Vertical";
+        private string jump = "Jump";
 
-
-        void Start()
+        private void Start()
         {
             rigidbody = GetComponent<Rigidbody>();
-
-        } 
-
-        void FixedUpdate()
-        {
-            JumpLogic();
-            MoveLogic();
         }
 
-        private void MoveLogic()
+        private void Update()
         {
-            rigidbody.AddForce(movementVector * Speed, ForceMode.Impulse);
+            direction.z = Input.GetAxis(horizontal);
+            direction.x = Input.GetAxis(vertical);
         }
 
-        private void JumpLogic()
+        private void FixedUpdate()
         {
-            if (Input.GetAxis("Jump") > 0)
-            {
-                rigidbody.AddForce(Vector3.up * JumpForce, ForceMode.Impulse);
-            }
+            var move = direction * speed * Time.deltaTime;
+            transform.Translate(move);
+
+            //if (direction.magnitude > Mathf.Abs(0.05f))
+               // transform.rotation = Quaternion.Lerp();
+
+
         }
     }
 }
-
