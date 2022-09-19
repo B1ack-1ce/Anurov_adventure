@@ -112,8 +112,8 @@ GameObject:
   - component: {fileID: 3661071714787286528}
   - component: {fileID: 6942406090230264981}
   m_Layer: 0
-  m_Name: Player 1
-  m_TagString: Untagged
+  m_Name: Player
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -223,8 +223,8 @@ MonoBehaviour:
   m_GameObject: {fileID: 1139968967997349917}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 27adec955fac1914db12446baeb8972c, type: 3}
+  m_Script: {fileID: 11500000, guid: 35e3b3a4cd12d054cb06aad2bc8fb86f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 5
+  speed: 3
   rotationSpeed: 15
