@@ -12,13 +12,13 @@ namespace Adventure.Enemies
 
         void Start()
         {
-            Destroy(gameObject, 3f);
+            
         }
 
-        // Update is called once per frame
+        
         void Update()
         {
-            transform.localPosition +=  transform.forward * speed * Time.deltaTime;
+            
         }
     }
 }

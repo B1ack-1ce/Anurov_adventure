@@ -7,7 +7,7 @@ namespace Adventure.Player
     public class PlayerMovement : MonoBehaviour
     {
         [SerializeField] private float speed = 3f;
-        [SerializeField] private float rotationSpeed = 15f;
+        [SerializeField] private float rotationSpeed = 2f;
 
         private Rigidbody rigidbody;
         private Vector3 direction;
@@ -32,8 +32,11 @@ namespace Adventure.Player
             var move = direction * speed * Time.deltaTime;
             transform.Translate(move);
 
-            //if (direction.magnitude > Mathf.Abs(0.05f))
-               // transform.rotation = Quaternion.Lerp();
+            if (direction.magnitude > Mathf.Abs(0.05f))
+            {
+
+            }
+                
 
 
         }
