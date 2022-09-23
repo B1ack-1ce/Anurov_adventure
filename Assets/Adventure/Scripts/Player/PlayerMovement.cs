@@ -1,6 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
+using UnityEditor.Rendering;
 using UnityEngine;
+using UnityEngine.EventSystems;
 
 namespace Adventure.Player 
 {
@@ -9,36 +11,35 @@ namespace Adventure.Player
         [SerializeField] private float speed = 3f;
         [SerializeField] private float rotationSpeed = 2f;
 
-        private Rigidbody rigidbody;
         private Vector3 direction;
-
-        private string horizontal = "Horizontal";
-        private string vertical = "Vertical";
-        private string jump = "Jump";
+        private string hor = "Horizontal";
+        private string ver = "Vertical";
+        //private string jump = "Jump";
 
         private void Start()
         {
-            rigidbody = GetComponent<Rigidbody>();
+           // rigidbody = GetComponent<Rigidbody>();
         }
 
         private void Update()
         {
-            direction.z = Input.GetAxis(horizontal);
-            direction.x = Input.GetAxis(vertical);
+            Movement();
+            Rotate();
         }
-
-        private void FixedUpdate()
+        
+        private void Movement()
         {
+            direction.z = Input.GetAxis(hor);
+            direction.x = Input.GetAxis(ver);
+
             var move = direction * speed * Time.deltaTime;
             transform.Translate(move);
-
-            if (direction.magnitude > Mathf.Abs(0.05f))
-            {
-
-            }
-                
-
-
         }
+
+        private void Rotate()
+        {
+            
+        }
+
     }
 }

@@ -6,8 +6,12 @@ namespace Adventure.Player
 {
     public class EnemyMine : MonoBehaviour
     {
-        [SerializeField] private int damage;
+        [SerializeField] private int damage; // наносимый урон персонажу
 
+        /// <summary>
+        /// Метод на урон от вражеской мины
+        /// </summary>
+        /// <param name="other"></param>
         private void OnTriggerEnter(Collider other)
         {
             if (other.gameObject.CompareTag("Player"))
