@@ -15,7 +15,7 @@ namespace Adventure.Enemies
         [SerializeField] private GameObject _arrow;
         
         // Поля простого таймера на стрельбу с шагом в 1 секунду
-        [SerializeField] private Transform spawnPoint;
+        [SerializeField] public Transform spawnPoint;
         [SerializeField] private float spawnStep = 2f;
         private float nextSpawnTime;
 

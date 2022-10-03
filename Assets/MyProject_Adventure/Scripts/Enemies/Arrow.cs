@@ -7,15 +7,22 @@ namespace Adventure.Enemies
 {
     public class Arrow : MonoBehaviour
     {
-        private float _speed = 100f;
+        [SerializeField ]private float _speed = 100f;
         private int _damage = 10;
         private float timeDestroy = 3f;
         private Rigidbody _rb;
+        private Vector3 _vectorShoot;
+
+        private void Awake()
+        {
+            _rb = GetComponent<Rigidbody>();
+            _vectorShoot = FindObjectOfType <ShootingEnemy> ().spawnPoint.transform.forward; //Получаем компонент позиции ArrowSpawn из класса "ShootingEnemy" 
+        }
 
         void Start()
         {
             _rb = GetComponent<Rigidbody>();
-            _rb.AddForce(Vector3.left * _speed * Time.deltaTime, ForceMode.Impulse); //Придание стреле силу импульса 
+            _rb.AddForce(_vectorShoot * _speed * Time.deltaTime, ForceMode.Impulse); //Придание стреле силу импульса 
             Invoke("DestroyBullet", timeDestroy); //уничтожение стрелы через опр. время, если не попала в игрока
         }
         /// <summary>

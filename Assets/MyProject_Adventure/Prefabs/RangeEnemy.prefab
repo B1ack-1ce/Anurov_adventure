@@ -215,7 +215,7 @@ Rigidbody:
   m_UseGravity: 1
   m_IsKinematic: 0
   m_Interpolate: 0
-  m_Constraints: 80
+  m_Constraints: 112
   m_CollisionDetection: 0
 --- !u!114 &-9081592253633137765
 MonoBehaviour:
@@ -229,10 +229,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b2b42c745d16da94b9d243de346d56ff, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _target: {fileID: 1139968967997349917, guid: a34fb4b2df940c44e8a6e4b0a7a5cc1f, type: 3}
+  _target: {fileID: 0}
   _rotateSpeed: 1
   _arrow: {fileID: 1419446473810445875, guid: 1265da7b8e5c58b47ac6eaf3d064c7f4, type: 3}
-  spawnPoint: {fileID: 0}
+  spawnPoint: {fileID: 3298998439178481886}
   spawnStep: 1
 --- !u!1 &2304752844276976605
 GameObject:
@@ -451,11 +451,11 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8051106520752536752}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.553, y: 0.235, z: 0.945}
+  m_LocalRotation: {x: 0, y: -0.052335896, z: 0, w: 0.9986295}
+  m_LocalPosition: {x: 0.58, y: 0.275, z: 0.942}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1138253806938269786}
   m_RootOrder: 3
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: -6, z: 0}

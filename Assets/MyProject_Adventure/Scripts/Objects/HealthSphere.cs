@@ -5,7 +5,7 @@ using UnityEngine;
 
 public class HealthSphere : MonoBehaviour
 {
-    [SerializeField] int _health; // ¬осполн€емое здоровье персонажа
+    [SerializeField] private int _health; // ¬осполн€емое здоровье персонажа
 
     /// <summary>
     /// ћетод аналогичный методу мины, только на восполнение здоровь€
